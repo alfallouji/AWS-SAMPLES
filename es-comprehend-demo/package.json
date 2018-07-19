@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.230.1",
+    "elasticsearch": "^14.2.2",
+    "http-aws-es": "^4.0.0",
+    "rss-to-json": "^1.0.4",
+    "uuid": "^3.2.1"
+  }
+}
