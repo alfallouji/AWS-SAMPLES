@@ -1,5 +1,18 @@
 /** Sample lambda function to be used with kinesis firehose for data transformation */
-
+/** Sample of input received :
+    {
+      "invocationId": "invocationIdExample",
+      "deliveryStreamArn": "arn:aws:kinesis:EXAMPLE",
+      "region": "eu-central-1",
+      "records": [
+        {
+          "recordId": "49546986683135544286507457936321625675700192471156785154",
+          "approximateArrivalTimestamp": 1495072949453,
+          "data": "eyJ0aWNrZXJfc3ltYm9sIjoiUVhaIiwgInNlY3RvciI6IkhFQUxUSENBUkUiLCAiY2hhbmdlIjotMC4wNSwgInByaWNlIjo4NC41MX0="
+        }
+      ]
+    }
+*/
 console.log('Loading function');
 
 exports.handler = async (event, context) => {
