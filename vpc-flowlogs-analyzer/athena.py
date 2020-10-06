@@ -14,7 +14,7 @@ import vpc_analyzer
 def main(argv):
     # Default values
     maxInboundRules = 20
-    maxSkipStep = 500
+    maxOpenPorts = 500
     interfaceId = 'eni-abcdefghijk'
     database = 'test'
     table = 'vpc_flow_logs'
@@ -25,9 +25,9 @@ def main(argv):
 
     # Get arguments values
     try:
-        opts, args = getopt.getopt(argv, "heltmrg", ["eni=", "limit=", "maxInboundRules=", "maxSkipStep=", "region=", "logGroup=", "bucket=", "path=", "tablename=",  "database=",  "help"])
+        opts, args = getopt.getopt(argv, "heltmrg", ["eni=", "limit=", "maxInboundRules=", "maxOpenPorts=", "region=", "logGroup=", "bucket=", "path=", "tablename=",  "database=",  "help"])
     except getopt.GetoptError:
-        print('index.py --eni=ENI --limit=10 --maxInboundRules=5 --maxSkipStep=50 --region=ap-southeast-2 --database=dbtest --tablename=tblvpc')
+        print('index.py --eni=ENI --limit=10 --maxInboundRules=5 --maxOpenPorts=50 --region=ap-southeast-2 --database=dbtest --tablename=tblvpc')
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h", "--help"):
@@ -38,7 +38,7 @@ def main(argv):
             print("\t\t--eni : AWS eni (network interface)")
             print("\t\t--limit : Set a limit of items to be returned by the query")
             print("\t\t--maxInboundRules : Maximum number of ranges and invidual ports to be returned")
-            print("\t\t--maxSkipStep : Maximum number of individual ports that can be skipped to build a single range")
+            print("\t\t--maxOpenPorts : Maximum number of individual ports that can be skipped to build a single range")
             print("\t\t--region : AWS region (e.g. ap-southeast-2)")
             print("\t\t--database : Athena database")
             print("\t\t--tablename : Athena tablename (refer to https://docs.aws.amazon.com/athena/latest/ug/vpc-flow-logs.html for instructions on how to create the table)")
@@ -64,8 +64,8 @@ def main(argv):
             region = arg                
         elif opt in ("--maxInboundRules"):
             maxInboundRules = int(arg)
-        elif opt in ("--maxSkipStep"):
-            maxSkipStep = int(arg)
+        elif opt in ("--maxOpenPorts"):
+            maxOpenPorts = int(arg)
 
     query = "SELECT distinct sourceport FROM \"" + database + "\".\"" + table + "\" where action = 'ACCEPT' and protocol = 6 and interfaceid = '" + interfaceId + "' order by sourceport"
     if (limit != None):
@@ -94,7 +94,7 @@ def main(argv):
     data.sort()
     
     # Search for optimal ranges
-    ranges, leftovers, unusedPorts = vpc_analyzer.optimize(data, maxInboundRules, maxSkipStep)
+    ranges, leftovers, unusedPorts = vpc_analyzer.optimize(data, maxInboundRules, maxOpenPorts)
     
     # Display result
     print("Data (", len(data), "): ", data)
@@ -105,7 +105,7 @@ def main(argv):
         print("Single port (/32) (", len(leftovers), "):", leftovers)
         print("Extra / Unused (", len(unusedPorts), "):", unusedPorts, "\n")
     else:
-        print("Couldnt find a combination - you may want to consider increasing the values for maxInboundRules or maxSkipStep\n")
+        print("Couldnt find a combination - you may want to consider increasing the values for maxInboundRules or maxOpenPorts\n")
         
 if __name__ == "__main__":
    main(sys.argv[1:])
