@@ -11,7 +11,7 @@ It will then attempt to come up with a set of port ranges and individual ports t
 
 In an ideal world, we should always try to restrict the number of ports left open within a security groups. However, there could be cases where this is ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of open ports.
 
-This script implements an algorithm that will attempt to give you an optimized result.. 
+This script implements an algorithm that will attempt to give you an optimized result.
 
 Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 
