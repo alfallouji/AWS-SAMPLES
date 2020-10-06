@@ -48,6 +48,7 @@ individual ports :
  - 83, 84
 ```
 
+In the previous example, we end up with two ranges and one individual ports. There are 2 ports that would be open and shouldn't. This is a compromise that we may decide to accept if we want to only have a maximum of 3 inbound rules defined in the security group.
 
 ## Usage 
 
