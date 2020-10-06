@@ -60,7 +60,7 @@ def main(argv):
         print("\nSingle port (/32) (", len(leftovers), "):\n", leftovers)
         print("\nExtra / Unused ports that are open and shouldnt (", len(unusedPorts), "):\n", unusedPorts, "\n")
     else:
-        print("Couldnt find a combination - you may want to consider increasing the values for maxInboundRules or maxOpenPorts\n")
+        print("Couldnt find a combination - you may want to consider increasing the values for maxInboundRules and/or maxOpenPorts\n")
         
 if __name__ == "__main__":
    main(sys.argv[1:])
