@@ -34,7 +34,7 @@ Assuming vpc flowlogs have returned the following source port used by a specific
 1020
 ```
 
-Running the optimizer with maxInboundRules of 3 (a maximum of inbound rules set to 3) and maxSkipStep of 3 (maximum number of open ports left within a range), it would give the following result :
+Running the optimizer with maxInboundRules of 3 and maxSkipStep of 3 (maximum number of open ports left within a range), it would give the following result :
 
 ```
 ranges : 
