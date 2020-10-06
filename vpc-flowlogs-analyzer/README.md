@@ -7,9 +7,9 @@ This code is just provided as a sample / example and hasn't been tested extensiv
 
 Sample code to show how to query cloudwatch log and Athena to retrieve the source ports used for a specific ENI in AWS.
 
-It will then attempt to come up with a set of port ranges and individual ports that will cover all those source ports - this can serve as a base to create CIDR for your security groups. 
+It will then attempt to come up with a set of port ranges and individual ports that will cover all those source ports - this can serve as a base to create the inbound rules of  your security groups. 
 
-In an ideal world, we should always try to restrict the number of ports left open within a security groups. However, there could be cases where this is ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of open ports.
+In an ideal world, we should always try to restrict the number of ports left open within a security group. However, there could be cases where this ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of open ports.
 
 This script implements an algorithm that will attempt to give you an optimized result.
 
