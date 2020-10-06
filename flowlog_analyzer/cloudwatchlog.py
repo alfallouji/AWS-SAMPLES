@@ -14,7 +14,7 @@ def main(argv):
     # Default values
     totalElement = 10
     maxSkipStep = 100
-    interfaceId = 'eni-0d8dce672540a5737'
+    interfaceId = 'eni-abcdefghijk'
     logGroup = '/vpcflowlogs/demo'
     region = 'ap-southeast-2'
     limit = None
