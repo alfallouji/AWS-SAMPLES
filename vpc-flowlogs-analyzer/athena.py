@@ -101,9 +101,9 @@ def main(argv):
     print("Algorithm attempted to come up with a combination of maximum", maxInboundRules)
     print("\n---- RESULT ----")
     if (len(ranges) > 0 or len(leftovers) > 0):
-        print("Ranges found (", len(ranges), "):", ranges)
-        print("Single port (/32) (", len(leftovers), "):", leftovers)
-        print("Extra / Unused (", len(unusedPorts), "):", unusedPorts, "\n")
+        print("Ranges (", len(ranges), "):\n", ranges)
+        print("Single port (/32) (", len(leftovers), "):\n", leftovers)
+        print("Extra / Unused ports that are open and shouldnt (", len(unusedPorts), "):\n", unusedPorts, "\n")
     else:
         print("Couldnt find a combination - you may want to consider increasing the values for maxInboundRules or maxOpenPorts\n")
         
