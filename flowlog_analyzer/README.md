@@ -1,7 +1,7 @@
 # VPC Flowlog analyzer
 
 ## Warning
-This code is just provided as a sample / example and hasn't been tested. Please keep that in mind if you decide to use it.
+This code is just provided as a sample / example and hasn't been tested extensively. Please keep that in mind if you decide to use it.
 
 ## Description
 
