@@ -69,7 +69,8 @@ In this case, the optimizer is suggesting three ranges and one individual ports.
 
 If we decide to run the optimizer with maxInboundRules = 1  and maxOpenPorts of 3, we would get the following result : 
 
-```Couldnt find a combination - you may want to consider increasing the values for totalElement or maxSkipStep
+```
+Couldnt find a combination - you may want to consider increasing the values for totalElement or maxSkipStep
 ```
 
 The optimizer has no magic power (yet) and is simply unable to come up with a solution with those constraints.
