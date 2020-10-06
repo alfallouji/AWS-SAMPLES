@@ -14,18 +14,18 @@ def main(argv):
 
     # Get arguments values
     try:
-        opts, args = getopt.getopt(argv, "", ["maxInboundRules=", "maxOpenPorts="])
+        opts, args = getopt.getopt(argv, "", ["maxInboundRules=", "maxOpenPorts=", "help"])
     except getopt.GetoptError:
         print('test-algorithm.py --maxInboundRules=5 --maxOpenPorts=50')
         sys.exit(2)
     for opt, arg in opts:
-        if opt in ("-h", "--help"):
+        if opt in ("--help"):
             print("\nTest script for the algorithm to attempt to identify a set of port ranges and individual ports to create your security groups in AWS.\n")
             print("\tUsage:\n\t======")
             print('\t\tpython test-algorithm.py --maxInboundRules=5 --maxOpenPorts=10')
             print("\n\tOptions:\n\t========");
             print("\t\t--maxInboundRules : Maximum number of ranges and invidual ports (inbound rules) to be returned")
-            print("\t\t--maxOpenPorts : Maximum number of individual ports that can be skipped (left open) to build a single range")
+            print("\t\t--maxOpenPorts : Maximum number of unneeded ports that can be skipped (left open) to build a single range")
 
             print("")
             sys.exit()

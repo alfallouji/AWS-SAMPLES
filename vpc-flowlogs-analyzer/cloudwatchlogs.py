@@ -34,7 +34,7 @@ def main(argv):
             print("\t\t--eni : AWS eni (network interface)")
             print("\t\t--limit : Set a limit of items to be returned by the query")
             print("\t\t--maxInboundRules : Maximum number of ranges and invidual ports (inbound rules) to be returned")
-            print("\t\t--maxOpenPorts : Maximum number of individual ports that can be skipped (left open) to build a single range")
+            print("\t\t--maxOpenPorts : Maximum number of unneeded ports that can be skipped (left open) to build a single range")
             print("\t\t--region : AWS region (e.g. ap-southeast-2)")
             print("\t\t--logGroup : Cloudwatch log group")
             print("")            
