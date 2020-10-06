@@ -23,13 +23,13 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "h", ["eni=", "limit=", "totalElement=", "maxSkipStep=", "region=", "logGroup=", "help"])
     except getopt.GetoptError:
-        print('cloudwatchlog.py --eni=ENI --totalElement=5 --limit=20 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20')
+        print('cloudwatchlogs.py --eni=ENI --totalElement=5 --limit=20 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20')
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             print("\nQuery cloudwatch logs containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.\n")
             print("\tUsage:\n\t======")
-            print('\t\tpython cloudwatchlog.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20')
+            print('\t\tpython cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20')
             print("\n\tOptions:\n\t========");
             print("\t\t--eni : AWS eni (network interface)")
             print("\t\t--limit : Set a limit of items to be returned by the query")
