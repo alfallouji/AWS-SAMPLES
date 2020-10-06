@@ -27,14 +27,14 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h", "--help"):
-            print("\nQuery cloudwatch logs containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.\n")
+            print("\nQuery Amnazon Cloudwatch Logs containing VPC Flow Logs and attempt to identify a set of port ranges and individual ports to create the inbound rules of your security groups in AWS.\n")
             print("\tUsage:\n\t======")
             print('\t\tpython cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap-southeast-2 --logGroup=grp1 --maxOpenPorts=20')
             print("\n\tOptions:\n\t========");
             print("\t\t--eni : AWS eni (network interface)")
             print("\t\t--limit : Set a limit of items to be returned by the query")
-            print("\t\t--maxInboundRules : Maximum number of ranges and invidual ports to be returned")
-            print("\t\t--maxOpenPorts : Maximum number of individual ports that can be skipped to build a single range")
+            print("\t\t--maxInboundRules : Maximum number of ranges and invidual ports (inbound rules) to be returned")
+            print("\t\t--maxOpenPorts : Maximum number of individual ports that can be skipped (left open) to build a single range")
             print("\t\t--region : AWS region (e.g. ap-southeast-2)")
             print("\t\t--logGroup : Cloudwatch log group")
             print("")            
@@ -72,7 +72,7 @@ def main(argv):
     print("Algorithm attempted to come up with a combination of maximum", maxInboundRules)
     if (len(ranges) > 0 or len(leftovers) > 0):
         print("\n---- RESULT ----")        
-        print("Ranges found (", len(ranges), "):", ranges)
+        print("Ranges (", len(ranges), "):", ranges)
         print("Single port (/32) (", len(leftovers), "):", leftovers)
         print("Extra / Unused (", len(unusedPorts), "):", unusedPorts, "\n")
     else:
