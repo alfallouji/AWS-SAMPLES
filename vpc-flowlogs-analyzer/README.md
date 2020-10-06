@@ -9,7 +9,7 @@ Sample code to show how to query Amazon Cloudwatch Logs and Amazon Athena to ret
 
 It will then attempt to come up with a set of port ranges and individual ports that will cover all those source ports - this can serve as a base to create the inbound rules of  your security groups. 
 
-In an ideal world, we should always try to restrict the number of ports left open within a security group. However, there could be cases where this ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of ports left open. Some applications may use thousands of ports. We also have to consider certain limits regarding security groups (e.g. default limit of 60 inbound ules per security group) : https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups
+In an ideal world, we should always try to limit the number of unnecessary ports left open to zero within a security group. However, there could be cases where this ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of ports left open. Some applications may use thousands of ports and the ops team may have limited documentation on what ports are used. We also have to consider certain limits regarding security groups (e.g. default limit of 60 inbound ules per security group) : https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups
 
 This script implements an algorithm that will attempt to give you an optimized result.
 
@@ -34,7 +34,7 @@ Assuming vpc flow logs have returned the following source port used by a specifi
 1020
 ```
 
-Running the optimizer with maxInboundRules of 3 and maxOpenPorts of 3 (maximum number of open ports left within a range), it would give the following result :
+Running the optimizer with maxInboundRules of 3 and maxOpenPorts of 3 (maximum number of open ports left within a single range or inbound rule), it would give the following result :
 
 ```
 ranges : 
@@ -65,12 +65,12 @@ extra/unused ports (ports that are open and shouldnt) :
  - (none)
 ```
 
-In this case, the optimizer is suggesting three ranges and one individual ports. This means a total of four inbound rules (which respects our constraints of being below 10 rules). There is no extra port left open. 
+In this case, the optimizer is suggesting three ranges and one individual port. This means a total of four inbound rules (which respects our constraints of being below 10 rules). There is no extra port left open. 
 
 If we decide to run the optimizer with maxInboundRules = 1  and maxOpenPorts of 3, we would get the following result : 
 
 ```
-Couldnt find a combination - you may want to consider increasing the values for totalElement or maxSkipStep
+Couldnt find a combination - you may want to consider increasing the values for maxInboundRules and/or maxOpenPorts
 ```
 
 The optimizer has no magic power (yet) and is simply unable to come up with a solution with those constraints.
