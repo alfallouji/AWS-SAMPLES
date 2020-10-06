@@ -44,13 +44,13 @@ def parse(data, maxSkipStep = 0):
 
     return ranges, leftovers, unusedPorts
 
-# Reduce number of cidr to a maximum of totalElement by accepting unused values (with a limit of how many values can be skipped)
+# Reduce number of cidr to a maximum of maxInboundRules by accepting unused values (with a limit of how many values can be skipped)
 # Ensure data array is sorted prior to calling this functionboto
-def optimize(data, totalElement, limit = 10):
+def optimize(data, maxInboundRules, limit = 10):
     currentMaxSkipStep = 0
     while (currentMaxSkipStep <= limit):
         ranges, leftovers, unusedPorts = parse(data, currentMaxSkipStep)
-        if (len(ranges) + len(leftovers) <= totalElement):
+        if (len(ranges) + len(leftovers) <= maxInboundRules):
             print("Number of unused/open ports tolerated for a single interval = ", currentMaxSkipStep)
             return ranges, leftovers, unusedPorts
         currentMaxSkipStep = currentMaxSkipStep + 1

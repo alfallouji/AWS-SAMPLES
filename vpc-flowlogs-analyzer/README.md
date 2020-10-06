@@ -34,7 +34,7 @@ Assuming vpc flowlogs have returned the following source port used by a specific
 1020
 ```
 
-Running the optimizer with totalElement of 3 (a maximum of inbound rules set to 3) and maxSkipStep of 3 (maximum number of open ports left within a range), it would give the following result :
+Running the optimizer with maxInboundRules of 3 (a maximum of inbound rules set to 3) and maxSkipStep of 3 (maximum number of open ports left within a range), it would give the following result :
 
 ```
 ranges : 
@@ -61,14 +61,14 @@ https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-cwl.html
 
 **Example**
 ```
-python cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20
+python cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20
 ```
 
 **Options**
 ```
 --eni : AWS eni (network interface)
 --limit : Set a limit of items to be returned by the query
---totalElement : Maximum number of ranges and invidual ports to be returned
+--maxInboundRules : Maximum number of ranges and invidual ports to be returned
 --maxSkipStep : Maximum number of individual ports that can be skipped to build a single range
 --region : AWS region (e.g. ap-southeast-2)
 --logGroup : Cloudwatch log group
@@ -84,14 +84,14 @@ https://docs.aws.amazon.com/athena/latest/ug/vpc-flow-logs.html
 
 **Usage**
 ```
-python athena.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --database=dbtest --tablename=tblvpc
+python athena.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap-southeast-2 --database=dbtest --tablename=tblvpc
 ```
 
 **Options**
 ```
 --eni : AWS eni (network interface)
 --limit : Set a limit of items to be returned by the query
---totalElement : Maximum number of ranges and invidual ports to be returned
+--maxInboundRules : Maximum number of ranges and invidual ports to be returned
 --maxSkipStep : Maximum number of individual ports that can be skipped to build a single range
 --region : AWS region (e.g. ap-southeast-2)
 --database : Athena database
