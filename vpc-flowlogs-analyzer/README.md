@@ -89,7 +89,7 @@ extra/unused ports (ports that are open and shouldnt) :
  - 83, 84, 87, 88, 89, 90, ..., ..., ..., 999, 1000, ..., ..., 1018, 1019
 ```
 
-In this example, the optimizer is giving one single range (as requested). However, there will hundreds of ports left open. 
+In this example, the optimizer is giving one single range (as requested). However, there will hundreds of ports left open (which is below the value of maxOpenPorts of 1000). 
 
 ## Usage 
 
