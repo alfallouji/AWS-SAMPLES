@@ -15,10 +15,10 @@ def main(argv):
     # Default values
     totalElement = 20
     maxSkipStep = 500
-    interfaceId = 'eni-0d8dce672540a5737'
+    interfaceId = 'eni-abcdefghijk'
     database = 'test'
     table = 'vpc_flow_logs'
-    bucket = 'aws.absa.pocs'
+    bucket = 'my_bucket'
     path = 'athena/'
     region = 'ap-southeast-2'
     limit = None
