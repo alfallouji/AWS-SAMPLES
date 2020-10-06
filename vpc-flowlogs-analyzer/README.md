@@ -33,13 +33,13 @@ Running the optimizer with totalElement of 3 and maxSkipStep of 3 woud give the 
 
 ```
 ranges : 
- - from 80 to 86
+ - from 81 to 86
  - from 1001 to 1002
  
 individual ports : 
  - 1020
  
- extra/unused ports :
+ extra/unused ports (ports that are open and shouldnt) :
  - 83, 84
 ```
 
