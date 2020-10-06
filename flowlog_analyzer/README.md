@@ -21,6 +21,10 @@ Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 
 Query cloudwatch logs containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.
 
+Refer to this documentation on how to publish vpc flowlogs to cloudwatch logs : 
+
+https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-cwl.html
+
 **Example**
 ```
 python cloudwatchlog.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20
@@ -39,6 +43,10 @@ python cloudwatchlog.py --eni=eni-1234567890 --limit=10 --totalElement=5 --regio
 ### athena.py - Athena
 
 Query an athena table containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.
+
+Refer to this documentation on how to create the table in Athena :
+
+https://docs.aws.amazon.com/athena/latest/ug/vpc-flow-logs.html 
 
 **Usage**
 ```
