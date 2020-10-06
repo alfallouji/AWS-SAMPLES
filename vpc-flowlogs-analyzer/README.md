@@ -38,7 +38,7 @@ Running the optimizer with maxInboundRules of 3 and maxOpenPorts of 3 (maximum n
 
 ```
 ranges : 
- - from 81 to 86
+ - from 80 to 86
  - from 1001 to 1002
  
 individual ports : 
@@ -48,7 +48,47 @@ individual ports :
  - 83, 84
 ```
 
-In the previous example, we end up with two ranges and one individual ports. There are 2 ports that would be open and shouldn't. This is a compromise that we may decide to accept if we want to only have a maximum of 3 inbound rules defined in the security group.
+In the previous example, we end up with two ranges and one individual port. There are 2 ports that would be open and shouldn't (ports 83 and 84). This is a compromise that we may decide to accept if we want to only have a maximum of 3 inbound rules defined in the security group. 
+
+If we decide to run the optimizer with maxInboundRules = 10 and maxOpenPorts of 3, we would get the following result : 
+
+```
+ranges : 
+ - from 80 to 82
+ - from 85 to 86
+ - from 1001 to 1002
+ 
+individual ports : 
+ - 1020
+ 
+ extra/unused ports (ports that are open and shouldnt) :
+ - (none)
+```
+
+In this case, the optimizer is suggesting three ranges and one individual ports. This means a total of four inbound rules (which respects our constraints of being below 10 rules). There is no extra port left open. 
+
+If we decide to run the optimizer with maxInboundRules = 1  and maxOpenPorts of 3, we would get the following result : 
+
+```Couldnt find a combination - you may want to consider increasing the values for totalElement or maxSkipStep
+```
+
+The optimizer has no magic power (yet) and is simply unable to come up with a solution with those constraints.
+
+If we decide to run the optimizer with maxInboundRules = 1  and maxOpenPorts of 1000, we would get the following result : 
+
+
+```
+ranges : 
+ - from 80 to 1020
+ 
+individual ports : 
+ - (none)
+ 
+ extra/unused ports (ports that are open and shouldnt) :
+ - 83, 84, 87, 88, 89, 90, ..., ..., ..., 999, 1000, ..., ..., 1018, 1019
+```
+
+In this example, the optimizer is giving one single range (as requested). However, there will hundreds of ports left open. 
 
 ## Usage 
 
