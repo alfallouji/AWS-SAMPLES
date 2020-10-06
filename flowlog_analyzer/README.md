@@ -1,5 +1,8 @@
 # VPC Flowlog analyzer
 
+## Warning
+This code is just provided as a sample / example and hasn't been tested. Please keep that in mind if you decide to use it.
+
 ## Description
 
 Sample code to show how to query cloudwatch log and Athena to retrieve the ports used for a specific ENI in AWS.
