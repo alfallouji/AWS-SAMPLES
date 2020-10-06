@@ -44,7 +44,7 @@ ranges :
 individual ports : 
  - 1020
  
- extra/unused ports (ports that are open and shouldnt) :
+extra/unused ports (ports that are open and shouldnt) :
  - 83, 84
 ```
 
@@ -61,7 +61,7 @@ ranges :
 individual ports : 
  - 1020
  
- extra/unused ports (ports that are open and shouldnt) :
+extra/unused ports (ports that are open and shouldnt) :
  - (none)
 ```
 
@@ -85,7 +85,7 @@ ranges :
 individual ports : 
  - (none)
  
- extra/unused ports (ports that are open and shouldnt) :
+extra/unused ports (ports that are open and shouldnt) :
  - 83, 84, 87, 88, 89, 90, ..., ..., ..., 999, 1000, ..., ..., 1018, 1019
 ```
 
