@@ -27,7 +27,7 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h", "--help"):
-            print("\nQuery Amnazon Cloudwatch Logs containing VPC Flow Logs and attempt to identify a set of port ranges and individual ports to create the inbound rules of your security groups in AWS.\n")
+            print("\nQuery Amnazon Cloudwatch Logs containing VPC Flow Logs for a specific ENI and attempt to identify a set of port ranges and individual ports to create the inbound rules of your security groups in AWS.\n")
             print("\tUsage:\n\t======")
             print('\t\tpython cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap-southeast-2 --logGroup=grp1 --maxOpenPorts=20')
             print("\n\tOptions:\n\t========");
