@@ -15,6 +15,35 @@ Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 - Must have python installed (version 3+)
 - Just run `pip install -r requirements.txt`
 
+## Example
+
+Assuming vpc flowlogs have returned the following source port used by a specific ENI : 
+
+```80
+81
+82
+85
+86
+1001
+1002
+1020
+```
+
+Running the optimizer with totalElement of 3 and maxSkipStep of 3 woud give the following result :
+
+```
+ranges : 
+ - from 80 to 86
+ - from 1001 to 1002
+ 
+individual ports : 
+ - 1020
+ 
+ extra/unused ports :
+ - 83, 84
+```
+
+
 ## Usage 
 
 ### cloudwatchlogs.py - Cloudwatch logs
