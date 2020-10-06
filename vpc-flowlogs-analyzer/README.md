@@ -9,7 +9,7 @@ Sample code to show how to query Amazon Cloudwatch Logs and Amazon Athena to ret
 
 It will then attempt to come up with a set of port ranges and individual ports that will cover all those source ports - this can serve as a base to create the inbound rules of  your security groups. 
 
-In an ideal world, we should always try to limit the number of unnecessary ports left open to zero within a security group. However, there could be cases where this ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of ports left open. Some applications may use thousands of ports and the ops team may have limited documentation on what ports are used. We also have to consider certain limits regarding security groups (e.g. default limit of 60 inbound ules per security group) : https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups
+In an ideal world, we should always try to limit the number of unnecessary ports left open to zero within a security group. However, there could be cases where this ends up as a difficult task to accomplish and we need to compromise between the number of inbound rules vs the number of ports left open. Some applications may use thousands of ports and the ops team may have limited documentation on what ports are used. We also have to consider certain limits regarding security groups (e.g. default limit of 60 inbound rules per security group) : https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups
 
 This script implements an algorithm that will attempt to give you an optimized result.
 
