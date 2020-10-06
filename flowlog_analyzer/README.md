@@ -10,6 +10,11 @@ It will then attempt to come up with a set of port ranges - this can serve as a 
 
 Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 
+## Setup
+
+- Must have python installed (version 3+)
+- Just run `pip install -r requirements.txt`
+
 ## Usage 
 
 ### cloudwatch.py - Cloudwatch logs
