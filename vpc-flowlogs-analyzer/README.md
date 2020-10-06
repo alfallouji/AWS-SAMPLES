@@ -89,7 +89,7 @@ extra/unused ports (ports that are open and shouldnt) :
  - 83, 84, 87, 88, 89, 90, ..., ..., ..., 999, 1000, ..., ..., 1018, 1019
 ```
 
-In this example, the optimizer is giving one single range (as requested). However, there will hundreds of ports left open (which is below the value of maxOpenPorts of 1000). 
+In this example, the optimizer is giving one single range (as requested). However, there will be 933 ports left open that shouldn't (which is below the value of maxOpenPorts of 1000). 
 
 ## Usage 
 
@@ -111,7 +111,7 @@ python cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --r
 --eni : AWS eni (network interface)
 --limit : Set a limit of items to be returned by the query
 --maxInboundRules : Maximum number of ranges and invidual ports to be returned
---maxOpenPorts : Maximum number of individual ports that can be skipped (left open) to build a single range
+--maxOpenPorts : Maximum number of unneeded ports that can be skipped (left open) to build a single range
 --region : AWS region (e.g. ap-southeast-2)
 --logGroup : Cloudwatch log group
 ```
@@ -134,7 +134,7 @@ python athena.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap
 --eni : AWS eni (network interface)
 --limit : Set a limit of items to be returned by the query
 --maxInboundRules : Maximum number of ranges and invidual ports to be returned
---maxOpenPorts : Maximum number of individual ports that can be skipped to build a single range
+--maxOpenPorts : Maximum number of unneeded ports that can be skipped (left open) to build a single range
 --region : AWS region (e.g. ap-southeast-2)
 --database : Athena database
 --tablename : Athena tablename (refer to https://docs.aws.amazon.com/athena/latest/ug/vpc-flow-logs.html for instructions on how to create the table)
