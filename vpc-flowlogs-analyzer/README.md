@@ -1,4 +1,4 @@
-# VPC Flowlogs analyzer
+# VPC Flowlogs Analyzer
 
 ## Warning
 This code is just provided as a sample / example and hasn't been tested extensively. Please keep that in mind if you decide to use it.
