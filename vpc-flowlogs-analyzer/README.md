@@ -17,7 +17,7 @@ Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 
 ## Usage 
 
-### cloudwatch.py - Cloudwatch logs
+### cloudwatchlogs.py - Cloudwatch logs
 
 Query cloudwatch logs containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.
 
@@ -27,7 +27,7 @@ https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-cwl.html
 
 **Example**
 ```
-python cloudwatchlog.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20
+python cloudwatchlogs.py --eni=eni-1234567890 --limit=10 --totalElement=5 --region=ap-southeast-2 --logGroup=grp1 --maxSkipStep=20
 ```
 
 **Options**
