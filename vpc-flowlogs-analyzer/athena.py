@@ -8,7 +8,7 @@
 
 # Import all packages needed    
 import sys, getopt
-import vpc_analyzer
+import vpc_flowlogs_analyzer
 
 # Main function invoked in CLI
 def main(argv):
@@ -80,7 +80,7 @@ def main(argv):
     }
     
     ## Fucntion for obtaining query results and location 
-    location, response = vpc_analyzer.query_aws_athena(params)
+    location, response = vpc_flowlogs_analyzer.query_aws_athena(params)
     
     # Remove first row (which contains column name)
     response["Rows"].pop(0)
@@ -94,7 +94,7 @@ def main(argv):
     data.sort()
     
     # Search for optimal ranges
-    ranges, leftovers, unusedPorts = vpc_analyzer.optimize(data, maxInboundRules, maxOpenPorts)
+    ranges, leftovers, unusedPorts = vpc_flowlogs_analyzer.optimize(data, maxInboundRules, maxOpenPorts)
     
     # Display result
     print("Data (", len(data), "): ", data)

@@ -7,7 +7,7 @@
 
 # Import all packages needed    
 import sys, getopt
-import vpc_analyzer
+import vpc_flowlogs_analyzer
 
 # Main function invoked in CLI
 def main(argv):
@@ -56,7 +56,7 @@ def main(argv):
     query = "fields @timestamp, interfaceId, srcAddr, dstAddr, protocol, srcPort, dstPort, action | filter interfaceId = '" + interfaceId + "' | filter action = 'ACCEPT' | stats count(*) as countTotal by srcPort, dstPort, srcAddr, dstAddr, action | sort by dstPort desc"
     if (limit != None):
         query = query + " | limit " + str(limit)
-    response = vpc_analyzer.query_aws_cloudwatch(query, logGroup, region)
+    response = vpc_flowlogs_analyzer.query_aws_cloudwatch(query, logGroup, region)
     data = []
     for values in response["results"]:
         data.append(int(values[1]["value"]))
@@ -65,7 +65,7 @@ def main(argv):
     data.sort()
     
     # Search for optimal ranges
-    ranges, leftovers, unusedPorts = vpc_analyzer.optimize(data, maxInboundRules, maxOpenPorts)
+    ranges, leftovers, unusedPorts = vpc_flowlogs_analyzer.optimize(data, maxInboundRules, maxOpenPorts)
     
     # Display result
     print("Data (", len(data), "): ", data)
