@@ -31,7 +31,7 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt in ("-h", "--help"):
-            print("\nQuery an athena table containing vpc flow logs and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.\n")
+            print("\nQuery an Amazon Athena table containing VPC Flow Logs for a specific ENI and attempt to identify a set of port ranges and individual ports to create your security groups in AWS.\n")
             print("\tUsage:\n\t======")
             print('\t\tpython athena.py --eni=eni-1234567890 --limit=10 --maxInboundRules=5 --region=ap-southeast-2 --database=dbtest --tablename=tblvpc')
             print("\n\tOptions:\n\t========");
