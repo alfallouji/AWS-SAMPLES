@@ -15,6 +15,10 @@ This script implements an algorithm that will attempt to give you an optimized r
 
 Requires : Adequate role / permission to query AWS cloudwatch logs and/or Athena
 
+Refer to thisdocumentation for the IAM permissions needed :
+
+https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-cwl.html#flow-logs-iam
+
 ## Setup
 
 - Must have python installed (version 3+)
