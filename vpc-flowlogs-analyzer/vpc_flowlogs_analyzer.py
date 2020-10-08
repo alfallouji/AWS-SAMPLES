@@ -92,11 +92,10 @@ def query_aws_athena(params):
             'Database' : params['database']
         },
         ResultConfiguration = {
-            'OutputLocation': 's3://aws.absa.pocs/athena/'
+            'OutputLocation': 's3://' + params['bucket'] + '/' + params['path']
         }
     )
 
-    # 's3://' + params['bucket'] + '/' + params['path']
     # This function takes query execution id as input and returns the details of the query executed
     response_get_query_details = client.get_query_execution(
         QueryExecutionId = response_query_execution_id['QueryExecutionId']
