@@ -101,9 +101,6 @@ def query_aws_athena(params):
         QueryExecutionId = response_query_execution_id['QueryExecutionId']
     )
 
-    print(response_get_query_details)
-
-    # time.sleep(1)
     # Condition for checking the details of response
     status = 'RUNNING'
     iterations = 10
