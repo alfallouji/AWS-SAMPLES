@@ -3,7 +3,7 @@
 EKS Distro announcement : 
 https://aws.amazon.com/blogs/opensource/introducing-amazon-eks-distro/
 
-## Overview 
+## Overview - Shared responsibility model with EKS
 
 ![Shared responsibility model with EKS](https://raw.githubusercontent.com/alfallouji/AWS-SAMPLES/master/eks-distro-test/eks-overview.png)
 
