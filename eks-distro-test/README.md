@@ -1,0 +1,59 @@
+# Experimenting with EKS Distro
+
+Testing EKS distro with an Ubuntu VM : 
+
+VM - Ubuntu 20.10 with Virtualbox 6.1 - https://ubuntu.com/download/desktop
+
+
+## Setup EKS with snap
+
+If you want to use other means to set it up : 
+https://distro.eks.amazonaws.com/users/install/partners/
+
+Using following tutorial for setup (snap cmd) :
+https://ubuntu.com/blog/install-amazon-eks-distro-anywhere
+
+It's just a one line command : 
+
+ `$ sudo snap install eks --edge --classic`
+
+### To check if setup was successfull
+
+`eks@eks:~$ sudo eks status`
+
+ ```eks is running
+ high-availability: no
+   datastore master nodes: 127.0.0.1:19001
+   datastore standby nodes: none
+ ```
+
+
+if not started, you can start it like this : 
+
+ `$ sudo eks start`
+
+### No existing pods
+`eks@eks:~$ sudo eks kubectl get pods`
+
+`No resources found in default namespace.`
+
+
+### Add a new pod (from nginx image at docker.io)
+ `eks@eks:~$ sudo eks  kubectl run nginx-pod --image=nginx`
+ 
+`pod/nginx-pod created`
+
+### Check if it was added
+`eks@eks:~$ sudo eks kubectl get pods
+NAME        READY   STATUS              RESTARTS   AGE
+nginx-pod   0/1     ContainerCreating   0          23s`
+
+### To get details on the running pod
+`eks@eks:~$ sudo eks kubectl describe pods nginx-pod`
+
+Locate IP address and test it with `curl` or with a browser.
+
+### With an ECR image
+`sudo eks kubectl run ecr-image-pod-test --image=public.ecr.aws/nginx/nginx:latest`
+
+Locate IP address and test it with `curl` or with a browser.
