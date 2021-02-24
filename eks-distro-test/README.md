@@ -36,7 +36,9 @@ if not started, you can start it like this :
 `eks@eks:~$ sudo eks kubectl get pods`
 
 You should see (which is normal) :
-```No resources found in default namespace.
+
+```
+No resources found in default namespace.
 ```
 
 
@@ -44,14 +46,16 @@ You should see (which is normal) :
  `eks@eks:~$ sudo eks  kubectl run nginx-pod --image=nginx`
  
  Expected output : 
-```pod/nginx-pod created
+```
+pod/nginx-pod created
 ```
 
 ### Check if it was added
 `eks@eks:~$ sudo eks kubectl get pods`
 
  Expected output : 
-```NAME        READY   STATUS              RESTARTS   AGE
+```
+NAME        READY   STATUS              RESTARTS   AGE
 nginx-pod   0/1     ContainerCreating   0          23s
 ```
 
