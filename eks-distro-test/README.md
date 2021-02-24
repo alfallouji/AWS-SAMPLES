@@ -1,5 +1,8 @@
 # Experimenting with EKS Distro
 
+EKS Distro announcement : 
+https://aws.amazon.com/blogs/opensource/introducing-amazon-eks-distro/
+
 Testing EKS distro with an Ubuntu VM : 
 
 VM - Ubuntu 20.10 with Virtualbox 6.1 - https://ubuntu.com/download/desktop
