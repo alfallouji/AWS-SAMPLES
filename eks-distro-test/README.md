@@ -50,6 +50,16 @@ You should see (which is normal) :
 No resources found in default namespace.
 ```
 
+### To check existing nodes 
+
+`$ sudo eks kubectl get nodes -o wide`
+
+You should see : 
+
+```
+NAME   STATUS   ROLES    AGE   VERSION              INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+eks    Ready    <none>   12h   v1.18.9-eks-1-18-1   10.0.2.15     <none>        Ubuntu 20.04.2 LTS   5.8.0-44-generic   containerd://1.3.7
+```
 
 ### Add a new pod (from nginx image at docker.io)
  `$ sudo eks  kubectl run nginx-pod --image=nginx`
