@@ -28,7 +28,7 @@ It's just a one line command :
 
 ### To check if setup was successfull
 
-`eks@eks:~$ sudo eks status`
+`$ sudo eks status`
 
  ```eks is running
  high-availability: no
@@ -42,7 +42,7 @@ if not started, you can start it like this :
  `$ sudo eks start`
 
 ### No existing pods
-`eks@eks:~$ sudo eks kubectl get pods`
+`$ sudo eks kubectl get pods`
 
 You should see (which is normal) :
 
@@ -52,7 +52,7 @@ No resources found in default namespace.
 
 
 ### Add a new pod (from nginx image at docker.io)
- `eks@eks:~$ sudo eks  kubectl run nginx-pod --image=nginx`
+ `$ sudo eks  kubectl run nginx-pod --image=nginx`
  
  Expected output : 
 ```
@@ -60,7 +60,7 @@ pod/nginx-pod created
 ```
 
 ### Check if it was added
-`eks@eks:~$ sudo eks kubectl get pods`
+`$ sudo eks kubectl get pods`
 
  Expected output : 
 ```
@@ -69,7 +69,7 @@ nginx-pod   0/1     ContainerCreating   0          23s
 ```
 
 ### To get details on the running pod
-`eks@eks:~$ sudo eks kubectl describe pods nginx-pod`
+`$ sudo eks kubectl describe pods nginx-pod`
 
 Locate IP address and test it with `curl` or with a browser.
 
