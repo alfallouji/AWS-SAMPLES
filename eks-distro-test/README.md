@@ -83,6 +83,13 @@ nginx-pod   0/1     ContainerCreating   0          23s
 
 Locate IP address and test it with `curl` or with a browser.
 
+
+## Links
+
+Learning EKS / K8s:
+https://www.eksworkshop.com/010_introduction/
+
+
 ### You can also try with an ECR image
 `sudo eks kubectl run ecr-image-pod-test --image=public.ecr.aws/nginx/nginx:latest`
 
