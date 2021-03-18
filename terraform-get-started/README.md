@@ -30,6 +30,13 @@ provider "aws" {
 }
 ```
 
+or use this code sample
+
+```
+git clone https://github.com/terraform-aws-modules/terraform-aws-vpc
+cd terraform-aws-vpc/examples/simple-vpc/
+```
+
 ## Initialize and run
 ```
 $ teraform init
