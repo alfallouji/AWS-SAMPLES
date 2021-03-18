@@ -1,7 +1,10 @@
 # Tutorial 
 
+## Links 
+
 https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
 
+## Setup 
 ```
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
@@ -10,7 +13,7 @@ terraform -install-autocomplete
 ```
 
 
-# Create a tf file
+## Create a tf file
 ```
 terraform {
   required_providers {
@@ -27,6 +30,7 @@ provider "aws" {
 }
 ```
 
+## Initialize and run
 ```
 $ teraform init
 ```
@@ -41,7 +45,6 @@ $ teraform apply
 
 
 ## Code samples
-
 https://github.com/terraform-aws-modules/terraform-aws-vpc
 
 
