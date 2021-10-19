@@ -52,3 +52,7 @@ $ teraform plan
 ```
 $ teraform apply
 ```
+
+```
+$ teraform destroy
+```
