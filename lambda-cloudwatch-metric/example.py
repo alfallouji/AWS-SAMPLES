@@ -27,6 +27,7 @@ def lambda_handler(event, context):
     portOpen = 1
     print("forcing value to: " + str(portOpen))
 
+    # Add value to a cloudwatch metric
     cloudwatch = boto3.client('cloudwatch')
     response = cloudwatch.put_metric_data(
         MetricData = [
